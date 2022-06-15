@@ -1,0 +1,17 @@
+:root{
+  --loginborderbutton: rgba(184, 75, 231, 0.8);
+  --loginbackgroundbutton: rgba(205, 121, 240, 0.8);
+  --loginletras: rgba(205, 121, 240, 0.8);
+  --loginhoverletras: #fff
+}
+
+.btn-outline-success{
+  color: var(--loginletras);
+  border-color: var(--loginborderbutton);
+}
+.btn-outline-success:hover{
+  color: var(--loginhoverletras);
+  background-color: var(--loginbackgroundbutton);
+  border-color: var(--loginborderbutton);
+
+}
