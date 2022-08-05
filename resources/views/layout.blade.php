@@ -9,12 +9,6 @@
 
     <title>Backend Loja</title>
 
-
-    <!-- biblio css do cadastro de produtos
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-    -->
-
-    <!-- Importação da biblioteca de css-->
     <link href="{{ asset('tema/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -22,10 +16,6 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('tema/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
-     <!--para o calendario aparecer  nos cadastros -->
-     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 
     <!--Mascara-->
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>

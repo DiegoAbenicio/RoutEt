@@ -4,7 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AnimaisController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ARController;
-
+use App\Http\Controllers\FullCalenderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,7 +29,7 @@ Route::get('/mapa', function () {
     return view('mapa');
 });
 
-
+Route::resource('agenda', FullCalenderController::class);
 Route::resource('animais', AnimaisController::class);
 Route::resource('clientes', ARController::class);
 Route::resource('agenda', AgendaController::class);

@@ -5,19 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Animal extends Model
+class Events extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
-        'nome', 'dono_id', 'tipodepelo', 'idade', 'raca', 'descricao', 'especie'
+        'title','animal_id','start','end'
     ];
 
-    public function dono()
+    public function animal()
     {
-        return $this->belongsTo('App\Models\Cliente');
+        return $this->belongsTo('App\Models\Animal');
     }
-
-
 }
