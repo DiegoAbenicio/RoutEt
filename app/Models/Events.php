@@ -10,7 +10,7 @@ class Events extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title','animal_id','start','end'
+        'title','animal_id','start','end','color','textColor'
     ];
 
     public function animal()

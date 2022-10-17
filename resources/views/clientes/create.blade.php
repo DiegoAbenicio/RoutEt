@@ -7,7 +7,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-dark">Inserindo Cliente</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Inserindo Animal</h6>
     </div>
     <div class="card-body">
 
@@ -31,42 +31,35 @@
 @endif
 
 
-<form action="{{ route('clientes.store') }}" method="POST">
+<form class ="was-validated" action ="{{ route ('clientes.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
      <div class="row">
      <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nome do Cliente:</strong>
-                <input type="text" name="nome" class="form-control is-valid" placeholder="Entre com o nome do Cliente"required>
+                <input type="text" name="nome" class="form-control is-valid" placeholder="Entre com o nome"required>
+            </div>
+            <div class="form-group">
+                <strong>Endereco:</strong>
+                <input type="text" name="endereco" class="form-control is-valid" placeholder="Entre com o endereço do Dono"required>
             </div>
         </div>
         <!--div linha 2 col-->
         <div class="form-row col-xs-12 col-sm-12 col-md-12">
 
             <div class="form-group col-md-6">
-                <strong>Quantidade de Cachorros:</strong>
-                <input type="int" name="qtdC" class="form-control is-valid" placeholder="Entre com quantidade de cachorros" required>
-            </div>
-
-
-             <!--Calendario javascript-->
-             <div class="form-group col-md-6 ">
                 <strong>Telefone:</strong>
-                <input class="form-control date wd is-valid" type="text" name="telefone" placeholder="Entre com o Telefone" required>
+                <input type="text" name="telefone" class="form-control is-valid" placeholder="Entre com o telefone"required>
             </div>
+
+             <div class="form-group col-md-6 ">
+                <strong>Quantidade de Pets:</strong>
+                <input type="text" name="qtdC" class="form-control is-valid" placeholder="Entre com a quantidade de pets"required>
+            </div>
+
         </div>
 
-        <div class="form-row col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group col-md-6">
-                <strong>Endereco:</strong>
-                <input type="text" name="endereco" class="form-control wd is-valid" placeholder="Entre com o Endereço"required>
-            </div>
-            <div class="form-group col-md-6">
-                <strong>Saldo:</strong>
-                <input type="text" name="saldo" class="form-control is-valid" placeholder="Entre com o saldo devedor"required>
-            </div>
-        </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Descrição do Cliente:</strong>
@@ -74,8 +67,8 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <a class="btn btn-danger" href="{{ route('clientes.index') }}"> Voltar</a>
-                <button type="submit" class="btn btn-dark">Concluir</button>
+                <a class="btn btn-danger" href="{{ route('clientes.index') }}"> Voltar </a>
+                <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
     </div>
 

@@ -1,11 +1,17 @@
 <?php
 
-use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AnimaisController;
-use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ARController;
 use App\Http\Controllers\FullCalenderController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ListController;
+use App\Http\Controllers\MapController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ServicosController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -19,19 +25,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/logado', function () {
-    return view('index');
-});
-Route::get('/mapa', function () {
-    return view('mapa');
-});
+Route::get('/', 'App\Http\Controllers\EventController@returnAgenda')->name('returnAgenda');
 
-Route::resource('agenda', FullCalenderController::class);
+
+
 Route::resource('animais', AnimaisController::class);
 Route::resource('clientes', ARController::class);
-Route::resource('agenda', AgendaController::class);
+Route::resource('usuarios', UsuarioController::class);
+Route::resource('list', ListController::class);
+Route::resource('servicos', ServicosController::class);
+Route::resource('mapa', MapController::class);
 
 
+
+Route::get('autocomplete', [AnimaisController::class, 'autocomplete'])->name('autocomplete');
+Route::get('agenda', 'App\Http\Controllers\EventController@returnAgenda')->name('returnAgenda');
+Route::get('index', 'App\Http\Controllers\EventController@index')->name('allEvent');
+Route::post('store', 'App\Http\Controllers\EventController@store')->name('store');
+
+
+Route::get('/mapa/show/map', 'courtController@showmap')->name('courts.showmap');

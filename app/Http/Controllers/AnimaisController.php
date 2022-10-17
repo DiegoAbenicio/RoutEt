@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Animal;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AnimaisController extends Controller
 {
@@ -19,6 +21,7 @@ class AnimaisController extends Controller
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +29,9 @@ class AnimaisController extends Controller
      */
     public function create()
     {
-        return view('animais.create');
+        $data = Cliente::latest()->paginate(5);
+        return view('animais.create',compact('data'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -37,6 +42,11 @@ class AnimaisController extends Controller
      */
     public function store(Request $request)
     {
+
+        $id = $request['dono_id'];
+
+        Alert::success('Sucesso', '{{ $id }}');
+
         $request->validate([
             'nome' => 'required',
             'dono_id' => 'required',
@@ -47,12 +57,14 @@ class AnimaisController extends Controller
             'especie' => 'required',
         ]);
 
-        //inserindo o registro na tabela
+
+
+
+
         Animal::create($request->all());
 
-        //redirecionando para a view raiz
-        return redirect()->route('animais.index')
-                        ->with('successo','Animal cadastrado com sucesso.');
+        Alert::success('Sucesso', 'Animal cadastrado com sucesso.');
+        return redirect()->route('animais.index');
     }
 
     /**
@@ -92,11 +104,15 @@ class AnimaisController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Animal
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+
+        $animal = Animal::query()->find($id);
+        $animal->delete();
+        Alert::success('Sucesso', 'Tarefa deletada com sucesso');
+        return redirect()->back();
     }
 }

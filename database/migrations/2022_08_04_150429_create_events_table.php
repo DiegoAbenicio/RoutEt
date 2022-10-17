@@ -16,9 +16,11 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignId('animal_id')->constrained('animals');
+            $table->foreignId('animal_id')->constrained('animals')->onDelete('cascade');
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->string('color');
+            $table->string('textColor');
             $table->timestamps();
         });
     }

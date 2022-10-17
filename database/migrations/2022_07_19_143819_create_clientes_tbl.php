@@ -19,7 +19,6 @@ class CreateClientesTbl extends Migration
             $table->text('qtdC');
             $table->text('telefone');
             $table->text('endereco');
-            $table->text('saldo');
             $table->longtext('descricao');
             $table->timestamps();
         });

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ARController extends Controller
 {
@@ -47,7 +49,6 @@ class ARController extends Controller
             'qtdC' => 'required',
             'telefone' => 'required',
             'endereco' => 'required',
-            'saldo' => 'required',
             'descricao' => 'required',
         ]);
 
@@ -55,8 +56,8 @@ class ARController extends Controller
         Cliente::create($request->all());
 
         //redirecionando para a view raiz
-        return redirect()->route('clientes.index')
-                        ->with('successo','Cliente cadastrado com sucesso.');
+        Alert::success('Sucesso', 'O Cliente foir criado com sucesso!');
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -102,7 +103,6 @@ class ARController extends Controller
             'qtdC' => 'required',
             'telefone' => 'required',
             'endereco' => 'required',
-            'saldo' => 'required',
             'descricao' => 'required',
         ]);
 
@@ -110,8 +110,8 @@ class ARController extends Controller
         $cliente->update($request->all());
 
         //retorna para a página principal
-        return redirect()->route('clientes.index')
-                        ->with('successo','Cliente alterado com sucesso!');
+        Alert::success('Sucesso', 'A alteração foi um sucesso!');
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -120,13 +120,12 @@ class ARController extends Controller
      * @param  \App\Models\Cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy($id)
     {
-        //deleta o produto no banco de dados
-        $cliente->delete();
 
-        //redireciona para a página inicial do cadastro
-        return redirect()->route('clientes.index')
-                        ->with('successo','Foi um sucesso a esclusão!');
+        $clientes = Cliente::query()->find($id);
+        $clientes->delete();
+        Alert::success('Sucesso', 'A exclusão foi um sucesso!');
+        return redirect()->route('clientes.index');
     }
 }

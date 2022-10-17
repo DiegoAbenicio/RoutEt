@@ -16,13 +16,14 @@ class Animais extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->text('nome');
-            $table->foreignId('dono_id')->constrained('clientes');
+            $table->foreignId('dono_id')->constrained('clientes')->onDelete('cascade');
             $table->text('tipodepelo');
             $table->text('idade');
             $table->text('raca');
             $table->text('especie');
             $table->longtext('descricao');
             $table->timestamps();
+
         });
     }
 
