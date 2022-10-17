@@ -16,6 +16,9 @@
         <div class="pull-left">
             <h2>Adicionar um novo Animal</h2>
         </div>
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('animais.index') }}"> Voltar</a>
+        </div>
     </div>
 </div>
 
@@ -41,7 +44,7 @@
                 <input type="text" name="nome" class="form-control is-valid" placeholder="Entre com o nome do Animal"required>
             </div>
             <div class="form-group col-md-6">
-                <strong>Selecione o nome do Dono:</strong>
+                <strong>Insira o id do Dono:</strong>
                 <input type="foreignId" name="dono_id" class="form-control is-valid" placeholder="Entre com o id do Dono"required>
             </div>
         </div>
@@ -58,8 +61,6 @@
                 </datalist>
             </div>
 
-
-             <!--Calendario javascript-->
              <div class="form-group col-md-6 ">
                 <strong>Especie:</strong>
                 <input class="form-control is-valid" name="especie" placeholder="Entre com a especie" required input list="especies">
@@ -72,11 +73,14 @@
         </div>
 
         <div class="form-row col-xs-12 col-sm-12 col-md-12">
+
             <div class="form-group col-md-6">
                 <strong>Raça:</strong>
                 <input type="text" name="raca" class="form-control wd is-valid" placeholder="Entre com a Raça"required>
             </div>
-            <div class="form-group col-md-6">
+
+
+             <div class="form-group col-md-6">
                 <strong>Idade:</strong>
                 <input type="int" name="idade" class="form-control is-valid" placeholder="Entre com a idade do animal"required>
             </div>

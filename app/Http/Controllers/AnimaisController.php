@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Cliente;
 use App\Models\Animal;
 use Illuminate\Http\Request;
 

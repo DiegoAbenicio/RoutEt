@@ -33,3 +33,5 @@ Route::resource('agenda', FullCalenderController::class);
 Route::resource('animais', AnimaisController::class);
 Route::resource('clientes', ARController::class);
 Route::resource('agenda', AgendaController::class);
+
+

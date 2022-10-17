@@ -9,15 +9,12 @@ class Animal extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'nome', 'dono_id', 'tipodepelo', 'idade', 'raca', 'descricao', 'especie'
     ];
 
-    public function dono()
-    {
+    public function dono(){
         return $this->belongsTo('App\Models\Cliente');
     }
-
 
 }

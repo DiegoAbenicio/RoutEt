@@ -70,10 +70,6 @@ class ARController extends Controller
         return view('clientes.show',compact('cliente'));
     }
 
-    public function cliente(Cliente $cliente){
-        return compact('cliente');
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
