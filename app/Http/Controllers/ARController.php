@@ -103,6 +103,7 @@ class ARController extends Controller
             'qtdC' => 'required',
             'telefone' => 'required',
             'endereco' => 'required',
+            'coordenadas' => 'required',
             'descricao' => 'required',
         ]);
 

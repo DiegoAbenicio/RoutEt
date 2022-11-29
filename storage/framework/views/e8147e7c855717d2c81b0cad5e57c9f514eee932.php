@@ -59,18 +59,8 @@
                     <label>Título do Evento</label>
                     <input type="search" id="title" class="form-control" name="title" placeholder="Insira o nome do Evento" value="" input list="CreateName">
                     <datalist id="CreateName">
-                        <?php
-                            $nomeanimal = '1';
-                            $nomeservico = '2';
-                        ?>
-                        <?php $__currentLoopData = $animal; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $animal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($animal->id == $nomeanimal): ?>
-                                <?php $__currentLoopData = $servicos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <?php if($value->id == $nomeservico): ?>
-                                        <option value="<?php echo e($value->title); ?> <?php echo e($animal->nome); ?>"></option>
-                                    <?php endif; ?>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php endif; ?>
+                        <?php $__currentLoopData = $servicos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($value->title); ?>"></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </datalist>
 

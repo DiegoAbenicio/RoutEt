@@ -59,18 +59,8 @@
                     <label>Título do Evento</label>
                     <input type="search" id="title" class="form-control" name="title" placeholder="Insira o nome do Evento" value="" input list="CreateName">
                     <datalist id="CreateName">
-                        @php
-                            $nomeanimal = '1';
-                            $nomeservico = '2';
-                        @endphp
-                        @foreach ($animal as $key => $animal)
-                            @if ($animal->id == $nomeanimal)
-                                @foreach ($servicos as $key => $value)
-                                    @if ($value->id == $nomeservico)
-                                        <option value="{{ $value->title }} {{$animal->nome }}"></option>
-                                    @endif
-                                @endforeach
-                            @endif
+                        @foreach ($servicos as $key => $value)
+                            <option value="{{ $value->title }}"></option>
                         @endforeach
                     </datalist>
 

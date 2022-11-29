@@ -4,6 +4,8 @@
 
 
 <div class="card shadow mb-4">
+
+
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Inserindo Animal</h6>
     </div>
@@ -38,11 +40,27 @@
                 <strong>Nome do Cliente:</strong>
                 <input type="text" name="nome" class="form-control is-valid" placeholder="Entre com o nome"required>
             </div>
-            <div class="form-group">
+        </div>
+
+        <div class="form-row col-xs-12 col-sm-12 col-md-12">
+
+            <div class="form-group col-md-6">
                 <strong>Endereco:</strong>
                 <input type="text" name="endereco" class="form-control is-valid" placeholder="Entre com o endereço do Dono"required>
             </div>
-        </div>
+
+            <div class="form-group col-md-4 ">
+                <strong>Coordenadas:</strong>
+                <input type="text" name="coordenadas" class="form-control is-valid" placeholder="Busque as coordenadas no mapa abaixo"required>
+
+            </div>
+
+            <div class="form-group col-md-2">
+                <br>
+                <button type="button" class="form-control" onclick="mudar()">Fechar e Abrir <i class="fas fa-map"></i></button>
+            </div>
+
+            <div id="map"></div>
         <!--div linha 2 col-->
         <div class="form-row col-xs-12 col-sm-12 col-md-12">
 
@@ -73,6 +91,18 @@
 </form>
 </div>
 </div>
+
+<script>
+    function mudar() {
+      var x = document.getElementById("map");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    };
+  </script>
+
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Area de Trabalho\Wallpapers\cadastro\CadastroFuncionando_\resources\views/clientes/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('clientes.showmap', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Area de Trabalho\Wallpapers\cadastro\CadastroFuncionando_\resources\views/clientes/create.blade.php ENDPATH**/ ?>

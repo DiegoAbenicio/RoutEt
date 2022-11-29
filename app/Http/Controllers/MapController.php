@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Events;
 
 class MapController extends Controller
 {
@@ -13,7 +14,9 @@ class MapController extends Controller
      */
     public function index()
     {
-        return view('mapa.index');
+        $events = Events::latest()->paginate(5);
+        return view('mapa.index',compact('events'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -43,9 +46,9 @@ class MapController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return redirect()->back();
     }
 
     /**
